@@ -83,22 +83,22 @@ function renderSwiper(data) {
     let item = data[i];
     html +=
       '<div class="swiper-slide">' +
-      '<div class="bg-white rounded-xl shadow-md overflow-hidden relative p-4 flex flex-col border border-blue-400">' +
+      '<div class="bg-white rounded-xl shadow-md overflow-hidden relative p-2 flex flex-col border border-blue-400 h-full">' +
       '<img src="' +
       item.img +
       '" class="w-full h-40 object-contain mb-3">' +
-      '<h2 class="text-sm font-semibold text-gray-800 leading-tight mb-2 line-clamp-2">' +
+      '<h2 class="text-xs sm:text-sm md:text-base font-semibold text-gray-800 leading-tight mb-2 truncate sm:line-clamp-2">' +
       item.title +
       "</h2>" +
       '<div class="flex items-center gap-2 mb-1">' +
-      '<span class="text-gray-400 line-through text-sm">' +
+      '<span class="text-gray-400 line-through text-xs sm:text-sm">' +
       (item.old_price ? Number(item.old_price).toLocaleString() + " сум" : "") +
       "</span>" +
-      '<span class="text-red-500 text-sm font-semibold">' +
+      '<span class="text-red-500 text-xs sm:text-sm font-semibold">' +
       (item.discount ? item.discount + "%" : "") +
       "</span>" +
       "</div>" +
-      '<p class="text-xl font-bold text-blue-600 mb-1">' +
+      '<p class="text-lg sm:text-xl font-bold text-blue-600 mb-1">' +
       Number(item.price).toLocaleString() +
       " сум</p>" +
       yulduzcha() +
@@ -108,7 +108,9 @@ function renderSwiper(data) {
       '">Купить</button>' +
       "</div></div></div>";
   }
+
   cardlar.innerHTML = html;
+
   if (window.Swiper) {
     new Swiper(".swiper", {
       slidesPerView: 2,
@@ -133,31 +135,31 @@ function renderGrid(data) {
   for (let i = 0; i < data.length; i++) {
     let item = data[i];
     html +=
-      '<div class="bg-white rounded-xl shadow-md overflow-hidden relative p-4 flex flex-col">' +
-      '<div class="relative mb-3">' +
+      '<div class="bg-white rounded-xl shadow-md overflow-hidden relative p-2 sm:p-4 flex flex-col">' +
+      '<div class="relative mb-2 sm:mb-3">' +
       '<img src="' +
       item.img +
-      '" class="w-full h-40 object-contain rounded-md">' +
+      '" class="w-full h-32 sm:h-40 object-contain rounded-md">' +
       '<div class="absolute top-0 right-0 flex flex-col gap-1">' +
-      '<button class="text-red-500 text-2xl hover:text-red-600"><i class="fa-regular fa-heart"></i></button>' +
-      '<button class="text-gray-700 text-2xl hover:text-gray-900"><i class="fa-solid fa-balance-scale"></i></button>' +
+      '<button class="text-red-500 text-lg sm:text-2xl hover:text-red-600"><i class="fa-regular fa-heart"></i></button>' +
+      '<button class="text-gray-700 text-lg sm:text-2xl hover:text-gray-900"><i class="fa-solid fa-balance-scale"></i></button>' +
       "</div></div>" +
-      '<h2 class="text-sm font-semibold text-gray-800 leading-tight mb-1">' +
+      '<h2 class="text-xs sm:text-sm font-semibold text-gray-800 leading-tight mb-1 line-clamp-2">' +
       item.title +
       "</h2>" +
       yulduzcha() +
-      '<p class="text-xs text-gray-500 mb-2">0 отзывов</p>' +
-      '<p class="text-xl font-bold text-blue-600 mb-1">' +
+      '<p class="text-[10px] sm:text-xs text-gray-500 mb-1 sm:mb-2">0 отзывов</p>' +
+      '<p class="text-lg sm:text-xl font-bold text-blue-600 mb-1">' +
       Number(item.price).toLocaleString() +
       " сум</p>" +
-      '<p class="text-sm text-orange-600 border border-orange-400 rounded-md px-2 py-1 w-full mb-3">' +
+      '<p class="text-[11px] sm:text-sm text-orange-600 border border-orange-400 rounded-md px-1.5 py-0.5 sm:px-2 sm:py-1 w-full mb-2 sm:mb-3">' +
       (item.rasrochka
         ? Number(item.rasrochka).toLocaleString() + " сум x 6 мес"
         : "Рассрочка недоступна") +
       "</p>" +
-      '<div class="mt-auto flex items-center justify-between gap-2">' +
-      '<button class="flex-1 bg-blue-600 text-white text-sm py-2 rounded-lg hover:bg-blue-700 flex items-center justify-center gap-2">Купить в один клик</button>' +
-      '<button class="shop-btn bg-green-500 text-white p-2 rounded-lg hover:bg-green-600" data-id="' +
+      '<div class="mt-auto flex items-center justify-between gap-1 sm:gap-2">' +
+      '<button class="flex-1 bg-blue-600 text-white text-[11px] sm:text-sm py-1.5 sm:py-2 rounded-lg hover:bg-blue-700 flex items-center justify-center gap-1 sm:gap-2">Купить в один клик</button>' +
+      '<button class="shop-btn bg-green-500 text-white p-1.5 sm:p-2 rounded-lg hover:bg-green-600" data-id="' +
       item.id +
       '" title="Добавить в корзину"><i class="fa-solid fa-cart-shopping pointer-events-none"></i></button>' +
       "</div></div>";

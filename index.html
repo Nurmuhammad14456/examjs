@@ -24,13 +24,12 @@
             </button>
             <img src="./imgs/asaxiy logo.svg" alt="logo" class="w-[120px]">
             <div class="flex items-center gap-4 text-xs">
-               <div class="flex flex-col items-center cursor-pointer hover:text-blue-600">
-                  <img src="./imgs/Vector.svg" alt="rasm" class="w-5 h-5">
-                  <span>Uzb</span>
-               </div>
-               <a href="#" class="flex flex-col items-center hover:text-blue-600">
-                  <i class="fa-solid fa-scale-balanced text-lg"></i>
-                  <span>Сравнение</span>
+
+               <a href="./savat.html" class="flex flex-col items-center relative hover:text-blue-600">
+                  <i class="fa-solid fa-cart-shopping text-lg"></i>
+                  <span
+                     class="absolute -top-1 cart__count -right-2 bg-blue-500 text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                  <span>Корзина</span>
                </a>
                <a href="#" class="flex flex-col items-center hover:text-blue-600">
                   <i class="fa-solid fa-user text-lg"></i>
@@ -114,7 +113,7 @@
          </div>
          <hr class="hidden md:block">
          <nav
-            class="max-w-[1450px] mx-auto hidden md:flex items-center justify-between gap-6 px-4 py-3 text-sm font-medium text-gray-700">
+            class="max-w-[1450px] mx-auto hidden md:flex items-center justify-between gap-3 px-4 py-3 text-sm font-medium text-gray-700">
             <a href="#" class="hover:text-blue-600">Супер цена</a>
             <a href="#" class="hover:text-blue-600">0-0-6</a>
             <a href="#" class="hover:text-blue-600 max-[930px]:hidden">Лучшее для студентов</a>
@@ -193,7 +192,7 @@
       <section class="max-w-[1450px] mx-auto mt-10">
 
 
-         <div class="p-6 ">
+         <div class="p-4 ">
             <div class="flex justify-between items-center mb-5 px-2">
                <h1 class="text-[18px] text-[#0F172A] font-bold">Супер цена</h1>
                <h1 class="text-[16px] text-blue-600 font-bold cursor-pointer hover:underline">Все товары</h1>
@@ -211,7 +210,7 @@
          </div>
 
 
-         <section class="max-w-[1450px] m-auto p-5">
+         <section class="max-w-[1450px] m-auto p-3">
             <div class="flex justify-between gap-3 flex-wrap relative">
 
                <div class="swiper-button-prev h-11 w-11 bg-gray-600 rounded-full text-blue-500 hidden md:flex"></div>
@@ -235,15 +234,15 @@
 
 
       </section>
-      <div class="max-w-[1450px] mx-auto p-6">
+      <div class="max-w-[1450px] mx-auto p-3">
          <h2 class="text-xl font-bold mb-4">Barcha mahsulotlar</h2>
-         <div id="cards" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"></div>
+         <div id="cards" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3"></div>
 
       </div>
 
 
       <section class="max-w-[1450px] mx-auto mt-10">
-         <div class="flex justify-between items-center gap-3">
+         <div class="flex justify-between flex-wrap w-full items-center gap-3">
             <div>
                <img src="./imgs/Background.png" alt="rasm">
             </div>
@@ -261,27 +260,27 @@
             <h1 class="text-[18px] text-[#0F172A] font-bold">Известные бренды</h1>
             <h1 class="text-[16px] text-blue-600 font-bold cursor-pointer hover:underline">Все товары</h1>
          </div>
-         <div class="flex justify-between flex-wrap gap-3">
+         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
             <div>
-               <img src="./imgs/18.png" alt="rasm">
+               <img src="./imgs/18.png" alt="rasm" class="w-full">
             </div>
             <div>
-               <img src="./imgs/19.png" alt="rasm">
+               <img src="./imgs/19.png" alt="rasm" class="w-full">
             </div>
             <div>
-               <img src="./imgs/20.png" alt="rasm">
+               <img src="./imgs/20.png" alt="rasm" class="w-full">
             </div>
             <div>
-               <img src="./imgs/21.png" alt="rasm">
+               <img src="./imgs/21.png" alt="rasm" class="w-full">
             </div>
             <div>
-               <img src="./imgs/22.png" alt="rasm">
+               <img src="./imgs/22.png" alt="rasm" class="w-full">
             </div>
             <div>
-               <img src="./imgs/23.png" alt="rasm">
+               <img src="./imgs/23.png" alt="rasm" class="w-full">
             </div>
-
          </div>
+
       </section>
 
       <section class=" bg-white rounded-2xl max-w-[1450px] mx-auto mt-10">
@@ -319,8 +318,8 @@
          </div>
       </section>
 
-      <section class="bg-blue-600 p-10">
-         <div class="max-w-[1450px] mx-auto mt-10 bg-white rounded-2xl p-10">
+      <section class="bg-blue-600 p-5">
+         <div class="max-w-[1450px] mx-auto mt-10 bg-white rounded-2xl p-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
                <div class="flex items-start gap-3">
@@ -457,13 +456,10 @@
             </h3>
          </div>
 
-         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
 
             <div>
                <div class="flex flex-wrap items-center gap-3">
-                  <div class="w-[155px] h-[55px] flex items-center justify-center rounded-lg bg-gray-200 shadow-sm">
-                     <img src="./imgs/uzcard.png" alt="uzum" class="object-contain">
-                  </div>
                   <div class="w-[155px] h-[55px] flex items-center justify-center rounded-lg bg-gray-200 shadow-sm">
                      <img src="./imgs/payme.png" alt="payme" class="object-contain">
                   </div>

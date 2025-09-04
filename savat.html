@@ -20,10 +20,11 @@
             </button>
             <img src="./imgs/asaxiy logo.svg" alt="logo" class="w-[120px]">
             <div class="flex items-center gap-4 text-xs">
-               <div class="flex flex-col items-center cursor-pointer hover:text-blue-600">
-                  <img src="./imgs/Vector.svg" alt="rasm" class="w-5 h-5">
-                  <span>Uzb</span>
-               </div>
+               <a href="./index.html" class="flex flex-col items-center relative hover:text-blue-600">
+                  <i class="fa-solid fa-arrow-right-from-bracket text-lg"></i>
+
+                  <span>exit</span>
+               </a>
                <a href="#" class="flex flex-col items-center hover:text-blue-600">
                   <i class="fa-solid fa-scale-balanced text-lg"></i>
                   <span>Сравнение</span>
@@ -96,19 +97,7 @@
             </div>
          </div>
 
-         <div id="profileModal" class="hidden fixed inset-0  items-center justify-center bg-black bg-opacity-50 z-50">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-80">
-               <h2 class="text-xl font-bold mb-4">Profil</h2>
-               <p><strong>Username:</strong> <span id="profileUsername"></span></p>
-               <p><strong>Email:</strong> <span id="profileEmail"></span></p>
-               <div class="mt-4 flex justify-between">
-                  <button id="logoutBtn"
-                     class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Logout</button>
-                  <button id="closeModal" class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">Yopish</button>
-               </div>
-            </div>
-         </div>
-         <hr class="hidden md:block">
+
          <nav
             class="max-w-[1450px] mx-auto hidden md:flex items-center justify-between gap-6 px-4 py-3 text-sm font-medium text-gray-700">
             <a href="#" class="hover:text-blue-600">Супер цена</a>
@@ -186,27 +175,16 @@
    <main class="mt-[140px]">
 
 
-      <!DOCTYPE html>
-      <html lang="ru">
 
-      <head>
-         <meta charset="UTF-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <title>Корзина</title>
-         <script src="https://cdn.tailwindcss.com"></script>
-      </head>
+      <section class="max-w-[1200px] mx-auto p-4">
+         <h1 class="text-2xl font-bold mb-6">Корзина</h1>
 
-      <body class="bg-gray-100">
+         <div class="flex flex-col lg:flex-row gap-6">
+            <div id="savatContainer" class="flex-1 bg-white rounded-xl shadow p-4"></div>
 
-         <main class="max-w-[1200px] mx-auto p-4">
-            <h1 class="text-2xl font-bold mb-6">Корзина</h1>
-
-            <div class="flex flex-col lg:flex-row gap-6">
-               <div id="savatContainer" class="flex-1 bg-white rounded-xl shadow p-4"></div>
-
-               <div id="summary" class="lg:w-80 bg-white rounded-xl shadow p-4 h-fit"></div>
-            </div>
-         </main>
+            <div id="summary" class="lg:w-80 bg-white rounded-xl shadow p-4 h-fit"></div>
+         </div>
+      </section>
 
 
 
