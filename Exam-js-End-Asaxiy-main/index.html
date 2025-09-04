@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="./src/output.css">
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body class="bg-gray-100 p-[10px]">
+
+   <header class="bg-white shadow p-[10px] fixed top-0 left-0 w-full z-50">
+      <div class="max-w-[1450px] mx-auto">
+         <div class="flex items-center justify-between py-3 px-2 md:hidden">
+            <button onclick="document.getElementById('sidebar').classList.remove('-translate-x-full')"
+               class="text-2xl text-blue-700">
+               <i class="fa-solid fa-bars"></i>
+            </button>
+            <img src="./imgs/asaxiy logo.svg" alt="logo" class="w-[120px]">
+            <div class="flex items-center gap-4 text-xs">
+               <div class="flex flex-col items-center cursor-pointer hover:text-blue-600">
+                  <img src="./imgs/Vector.svg" alt="rasm" class="w-5 h-5">
+                  <span>Uzb</span>
+               </div>
+               <a href="#" class="flex flex-col items-center hover:text-blue-600">
+                  <i class="fa-solid fa-scale-balanced text-lg"></i>
+                  <span>Сравнение</span>
+               </a>
+               <a href="#" class="flex flex-col items-center hover:text-blue-600">
+                  <i class="fa-solid fa-user text-lg"></i>
+                  <span>Войти</span>
+               </a>
+            </div>
+         </div>
+         <div class="hidden md:flex justify-between items-center py-4 gap-4">
+
+            <div class="flex items-center gap-5 flex-1">
+
+               <img class="hidden lg:block" src="./imgs/asaxiy logo.svg" alt="rasm">
+
+               <button class="hidden items-center gap-2 lg:flex bg-blue-700 text-white px-4 py-2 rounded-[10px]">
+                  <i class="fa-solid fa-bars"></i> Категории
+               </button>
+
+               <button class="lg:hidden text-2xl text-blue-700">
+                  <i class="fa-solid fa-bars"></i>
+               </button>
+
+               <div class="flex flex-1">
+                  <input
+                     class="border-2 border-blue-600 py-2 px-3 w-full rounded-l-md focus:outline-none focus:border-blue-700"
+                     type="text" placeholder="Поиск....">
+                  <button class="bg-blue-700 text-white px-4 py-2 rounded-r-md">Искать</button>
+               </div>
+            </div>
+
+            <div class="flex items-center gap-5 text-xs">
+               <a href="#" class="flex flex-col items-center hover:text-blue-600 max-[440px]:hidden">
+                  <i class="fa-solid fa-scale-balanced text-lg"></i>
+                  <span>Сравнение</span>
+               </a>
+               <a href="#" class="flex flex-col items-center hover:text-blue-600 max-[800px]:hidden">
+                  <i class="fa-regular fa-cart-shopping text-lg"></i>
+                  <span>Отложить</span>
+               </a>
+               <a href="#" class="flex flex-col items-center hover:text-blue-600 max-[800px]:hidden">
+                  <i class="fa-solid fa-truck-fast text-lg"></i>
+                  <span>Отследить</span>
+               </a>
+               <a href="./savat.html" class="flex flex-col items-center relative hover:text-blue-600">
+                  <i class="fa-solid fa-cart-shopping text-lg"></i>
+                  <span
+                     class="absolute -top-1 cart__count -right-2 bg-blue-500 text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                  <span>Корзина</span>
+               </a>
+               <a href="#" class="flex flex-col items-center relative hover:text-blue-600">
+                  <i class="fa-regular fa-heart text-lg"></i>
+
+                  <span>Избранное</span>
+               </a>
+               <div class="flex items-center flex-col cursor-pointer gap-2 hover:text-blue-600 max-[440px]:hidden">
+                  <div class="rounded-full">
+                     <img src="./imgs/Vector.svg" alt="rasm">
+                  </div>
+                  <span>Uzb</span>
+               </div>
+
+
+               <a href="login.html" class="flex flex-col items-center hover:text-blue-600">
+                  <i class="fa-solid fa-user text-lg"></i>
+                  <span>Войти</span>
+               </a>
+
+            </div>
+         </div>
+
+         <div id="profileModal" class="hidden fixed inset-0  items-center justify-center bg-black bg-opacity-50 z-50">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-80">
+               <h2 class="text-xl font-bold mb-4">Profil</h2>
+               <p><strong>Username:</strong> <span id="profileUsername"></span></p>
+               <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+               <div class="mt-4 flex justify-between">
+                  <button id="logoutBtn"
+                     class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Logout</button>
+                  <button id="closeModal" class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">Yopish</button>
+               </div>
+            </div>
+         </div>
+         <hr class="hidden md:block">
+         <nav
+            class="max-w-[1450px] mx-auto hidden md:flex items-center justify-between gap-6 px-4 py-3 text-sm font-medium text-gray-700">
+            <a href="#" class="hover:text-blue-600">Супер цена</a>
+            <a href="#" class="hover:text-blue-600">0-0-6</a>
+            <a href="#" class="hover:text-blue-600 max-[930px]:hidden">Лучшее для студентов</a>
+            <a href="#" class="hover:text-blue-600">Смартфоны</a>
+            <a href="#" class="hover:text-blue-600">Бытовая техника</a>
+            <a href="#" class="hover:text-blue-600">Книги</a>
+            <a href="#" class="hover:text-blue-600">Телевизоры</a>
+            <a href="#" class="hover:text-blue-600">Ноутбуки</a>
+         </nav>
+      </div>
+   </header>
+   <div>
+      <div id="sidebar"
+         class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50">
+
+         <div class="flex items-center justify-between p-4 border-b">
+            <img src="./imgs/asaxiy logo.svg" alt="Asaxiy" class="w-[120px]">
+
+            <button onclick="document.getElementById('sidebar').classList.add('-translate-x-full')"
+               class="text-2xl text-gray-600 hover:text-red-500">
+               <i class="fa-solid fa-xmark"></i>
+            </button>
+         </div>
+
+         <ul class="p-4 space-y-4  font-medium">
+            <li class="flex items-center gap-4">
+               <span><i class="fa-solid fa-credit-card"></i></span>
+               <a href="#" class="block hover:text-blue-600">Оплатить</a>
+            </li>
+            <li class="flex items-center gap-4">
+               <span><i class="fa-solid fa-truck-moving"></i></span>
+               <a href="#" class="block hover:text-blue-600">Отследить закас</a>
+            </li>
+            <li class="flex items-center gap-4">
+               <span><i class="fa-solid fa-store"></i></span>
+               <a href="#" class="block hover:text-blue-600">Новинки</a>
+            </li>
+            <li class="flex items-center gap-4">
+               <span><i class="fa-solid fa-file-contract"></i></span>
+               <a href="#" class="block hover:text-blue-600">Новости</a>
+            </li>
+            <li class="flex items-center gap-4">
+               <span><i class="fa-solid fa-circle-exclamation"></i></span>
+               <a href="#" class="block hover:text-blue-600">О нас</a>
+            </li>
+            <h1 class="font-bold pt-[20px]">Доставка и магазины</h1>
+
+            <ul class="space-y-2 pt-[50px]">
+
+               <div class="flex justify-between p-2 items-center  bg-gray-200 rounded-2xl w-full">
+                  <span><i class="fa-solid fa-house text-lg"></i></span>
+                  <h1 class="hover:text-blue-600">Наши магазины</h1>
+                  <span><i class="fa-solid fa-angle-right text-lg"></i></span>
+               </div>
+
+               <div class="flex justify-between p-2 items-center  bg-gray-200 rounded-2xl w-full">
+                  <span><i class="fa-solid fa-map-location"></i></span>
+                  <h1 class="hover:text-blue-600">Пункты выдачи</h1>
+                  <span><i class="fa-solid fa-angle-right text-lg"></i></span>
+               </div>
+
+               <div class="flex justify-between p-2 items-center  bg-gray-200 rounded-2xl w-full">
+                  <span><i class="fa-solid fa-truck-fast"></i></span>
+                  <h1 class="hover:text-blue-600">Доставка</h1>
+                  <span><i class="fa-solid fa-angle-right text-lg"></i></span>
+               </div>
+            </ul>
+         </ul>
+      </div>
+
+   </div>
+
+
+
+   <main class="mt-[120px]">
+      <section class="max-w-[1450px] mx-auto mt-10">
+
+
+         <div class="p-6 ">
+            <div class="flex justify-between items-center mb-5 px-2">
+               <h1 class="text-[18px] text-[#0F172A] font-bold">Супер цена</h1>
+               <h1 class="text-[16px] text-blue-600 font-bold cursor-pointer hover:underline">Все товары</h1>
+            </div>
+            <div class="swiper bg-blue-600 p-5 rounded-2xl">
+               <div class="swiper-wrapper" id="swiper-cards">
+               </div>
+               <div class="swiper-button-prev h-9 w-9  rounded-full flex items-center justify-center ">
+
+               </div>
+               <div class="swiper-button-next h-9 w-9  rounded-full flex items-center justify-center">
+
+               </div>
+            </div>
+         </div>
+
+
+         <section class="max-w-[1450px] m-auto p-5">
+            <div class="flex justify-between gap-3 flex-wrap relative">
+
+               <div class="swiper-button-prev h-11 w-11 bg-gray-600 rounded-full text-blue-500 hidden md:flex"></div>
+
+               <img src="./imgs/Picture → 689c2e6f50aae.png.webp.png" alt="rasm"
+                  class="w-full md:w-auto object-contain mx-auto mb-3">
+
+               <img src="./imgs/Picture → 674355c3a2e00.jpeg.webp.png" alt="rasm"
+                  class="w-full md:w-auto object-contain mx-auto mb-3">
+
+               <img src="./imgs/15 → Link.png" alt="rasm" class="w-full md:w-auto object-contain mx-auto">
+
+               <img src="./imgs/15 → Link1.png" alt="rasm" class="w-full md:w-auto object-contain mx-auto mb-3">
+               <div
+                  class="swiper-button-next h-11 w-11 bg-gray-600 rounded-full text-[18px] text-blue-500 hidden md:flex shadow-2xl">
+               </div>
+            </div>
+         </section>
+
+
+
+
+      </section>
+      <div class="max-w-[1450px] mx-auto p-6">
+         <h2 class="text-xl font-bold mb-4">Barcha mahsulotlar</h2>
+         <div id="cards" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"></div>
+
+      </div>
+
+
+      <section class="max-w-[1450px] mx-auto mt-10">
+         <div class="flex justify-between items-center gap-3">
+            <div>
+               <img src="./imgs/Background.png" alt="rasm">
+            </div>
+            <div>
+               <img src="./imgs/Background2.png" alt="rasm">
+            </div>
+         </div>
+      </section>
+
+
+
+
+      <section class="max-w-[1450px] mx-auto mt-10">
+         <div class="flex justify-between items-center mb-5 px-2">
+            <h1 class="text-[18px] text-[#0F172A] font-bold">Известные бренды</h1>
+            <h1 class="text-[16px] text-blue-600 font-bold cursor-pointer hover:underline">Все товары</h1>
+         </div>
+         <div class="flex justify-between flex-wrap gap-3">
+            <div>
+               <img src="./imgs/18.png" alt="rasm">
+            </div>
+            <div>
+               <img src="./imgs/19.png" alt="rasm">
+            </div>
+            <div>
+               <img src="./imgs/20.png" alt="rasm">
+            </div>
+            <div>
+               <img src="./imgs/21.png" alt="rasm">
+            </div>
+            <div>
+               <img src="./imgs/22.png" alt="rasm">
+            </div>
+            <div>
+               <img src="./imgs/23.png" alt="rasm">
+            </div>
+
+         </div>
+      </section>
+
+      <section class=" bg-white rounded-2xl max-w-[1450px] mx-auto mt-10">
+         <div class="p-[10px]">
+            <h1 class="text-center font-bold text-[40px] max-[650px]:text-[30px]">
+               О компании Asaxiy
+            </h1>
+
+            <p class="text-[18px] text-center p-5 text-[#212529] max-[650px]:text-[15px]">Главное преимущество нашей
+               компании, которая занимается
+               поставками бытовой техники и электроники в
+               Узбекистане –
+               многолетний опыт работы и заслуженное доброе
+               имя. С момента своего развития интернет-магазин Asaxiy и его команда неустанно следит за тенденциями
+               спроса
+               потребительского рынка, что дает нам возможность всегда
+               быть в курсе самых последних технологий и инновационных решений. Специалисты компании внимательно изучают
+               желания наших
+               клиентов, поэтому ресурс постоянно
+               обновляется качественными новинками, имеющими доступную стоимость.</p>
+            <hr>
+            <div class="flex justify-between items-center mb-5 px-2">
+               <h1 class="text-[18px] text-[#0F172A] font-bold">Принцип работы компании</h1>
+               <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="flex justify-between items-center mb-5 px-2">
+               <h1 class="text-[18px] text-[#0F172A] font-bold">Наши преимущества</h1>
+               <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <hr>
+            <p class="text-[16px] text-[#212529] p-5 font-bold">"Asaxiy Books" ООО <br>
+               Регистрация: 646439 <br>
+               ИНН: 305829008 <br>
+               Директор: Allayev Firuz Abdunasimovich</p>
+         </div>
+      </section>
+
+      <section class="bg-blue-600 p-10">
+         <div class="max-w-[1450px] mx-auto mt-10 bg-white rounded-2xl p-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+               <div class="flex items-start gap-3">
+                  <img src="./imgs/market.svg" alt="rasm" class="w-10 h-10">
+                  <p class="text-[19px] font-bold">
+                     Больше не нужно ходить на <br>
+                     <span class="text-[14px] text-[#858997]">
+                        У нас выгодные цены и <br> доставка до дома
+                     </span>
+                  </p>
+               </div>
+
+               <div class="flex items-start gap-3">
+                  <img src="./imgs/fast-delivery.svg fill.svg" alt="rasm" class="w-10 h-10">
+                  <p class="text-[19px] font-bold">
+                     Быстрая доставка <br>
+                     <span class="text-[14px] text-[#858997]">
+                        Наш сервис удивит вас
+                     </span>
+                  </p>
+               </div>
+
+               <div class="flex items-start gap-3">
+                  <img src="./imgs/return.svg" alt="rasm" class="w-10 h-10">
+                  <p class="text-[19px] font-bold">
+                     Удобства для вас <br>
+                     <span class="text-[14px] text-[#858997]">
+                        Быстрое оформление и <br>
+                        гарантия на возврат в <br>
+                        случае неисправности
+                     </span>
+                  </p>
+               </div>
+
+               <div class="flex items-start gap-3">
+                  <img src="./imgs/card1.svg" alt="rasm" class="w-10 h-10">
+                  <p class="text-[19px] font-bold">
+                     Рассрочка <br>
+                     <span class="text-[14px] text-[#858997]">
+                        Без предоплаты на 3, 6 или <br> 12 месяцев
+                     </span>
+                  </p>
+               </div>
+
+            </div>
+         </div>
+      </section>
+
+   </main>
+
+   <footer class="py-10">
+      <div class="max-w-[1450px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 px-5">
+
+         <div>
+            <h3 class="text-lg font-semibold mb-4 border-b  pb-2 w-fit">Об Авозлу</h3>
+            <ul class="space-y-2 ">
+               <li><a href="#" class="hover:text-blue-600">От нас</a></li>
+               <li><a href="#" class="hover:text-blue-600">Карьера в Авозлу</a></li>
+               <li><a href="#" class="hover:text-blue-600">Лицензии и сертификаты</a></li>
+               <li><a href="#" class="hover:text-blue-600">Политика Авозлу</a></li>
+            </ul>
+         </div>
+
+         <div>
+            <h3 class="text-lg font-semibold mb-4 border-b  pb-2 w-fit">Покупателям</h3>
+            <ul class="space-y-2 ">
+               <li><a href="#" class="hover:text-blue-600">Часто задаваемые вопросы</a></li>
+               <li><a href="#" class="hover:text-blue-600">Статус «Внуки Ньютоны»</a></li>
+               <li><a href="#" class="hover:text-blue-600">«Авозлу Plus»</a></li>
+               <li><a href="#" class="hover:text-blue-600">Договор публичной оферты</a></li>
+               <li><a href="#" class="hover:text-blue-600">Оферта для рассрочки</a></li>
+            </ul>
+         </div>
+
+         <div class="w-[200px]">
+            <h3 class="text-lg font-semibold mb-4 border-b  pb-2 w-fit">Информации</h3>
+            <ul class="space-y-2 ">
+               <li><a href="#" class="hover:text-blue-600">Наши бренды</a></li>
+               <li><a href="#" class="hover:text-blue-600">Новости</a></li>
+               <li><a href="#" class="hover:text-blue-600">Блог</a></li>
+               <li><a href="#" class="hover:text-blue-600">Карта сайта</a></li>
+            </ul>
+         </div>
+
+         <div>
+            <h3 class="text-lg font-semibold mb-4 border-b  pb-2 w-fit">Доставка и магазины
+            </h3>
+            <ul class="space-y-2 ">
+
+               <div class="flex justify-between items-center p-5 bg-gray-200 rounded-2xl w-[250px]">
+                  <span><i class="fa-solid fa-house text-lg"></i></span>
+                  <h1 class="hover:text-blue-600">Наши магазины</h1>
+                  <span><i class="fa-solid fa-angle-right text-lg"></i></span>
+               </div>
+
+               <div class="flex justify-between items-center p-5 bg-gray-200 rounded-2xl w-[250px]">
+                  <span><i class="fa-solid fa-map-location"></i></span>
+                  <h1 class="hover:text-blue-600">Пункты выдачи</h1>
+                  <span><i class="fa-solid fa-angle-right text-lg"></i></span>
+               </div>
+
+               <div class="flex justify-between items-center p-5 bg-gray-200 rounded-2xl w-[250px]">
+                  <span><i class="fa-solid fa-truck-fast"></i></span>
+                  <h1 class="hover:text-blue-600">Доставка</h1>
+                  <span><i class="fa-solid fa-angle-right text-lg"></i></span>
+               </div>
+            </ul>
+         </div>
+
+         <div>
+            <h3 class="text-lg font-semibold mb-4 border-b  pb-2 w-fit">Для связи</h3>
+            <ul class="space-y-2 ">
+               <li class="flex items-center gap-2"><i class="fas fa-phone "></i> +998 71 200 01 06</li>
+               <li class="flex items-center gap-2"><i class="fas fa-envelope "></i> info@onsony.uz</li>
+               <li class="flex items-center gap-2"><i class="fab fa-telegram "></i> Telegram bot</li>
+               <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt "></i> улица Гавара ТА,
+                  Ташкент</li>
+            </ul>
+
+
+
+
+         </div>
+
+
+
+
+      </div>
+      <section class="max-w-[1450px] mx-auto px-4 py-6">
+         <div class="flex justify-between items-center">
+            <h3 class="text-base font-semibold mb-3">Виды оплаты</h3>
+            <h3 class="text-base font-semibold mb-3 hidden [@media(min-width:1050px)]:block">
+               Мы в соц. сетях
+            </h3>
+         </div>
+
+         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+
+            <div>
+               <div class="flex flex-wrap items-center gap-3">
+                  <div class="w-[155px] h-[55px] flex items-center justify-center rounded-lg bg-gray-200 shadow-sm">
+                     <img src="./imgs/uzcard.png" alt="uzum" class="object-contain">
+                  </div>
+                  <div class="w-[155px] h-[55px] flex items-center justify-center rounded-lg bg-gray-200 shadow-sm">
+                     <img src="./imgs/payme.png" alt="payme" class="object-contain">
+                  </div>
+                  <div class="w-[155px] h-[55px] flex items-center justify-center rounded-lg bg-gray-200 shadow-sm">
+                     <img src="./imgs/uzcard.png" alt="uzcard" class="object-contain">
+                  </div>
+                  <div class="w-[155px] h-[55px] flex items-center justify-center rounded-lg bg-gray-200 shadow-sm">
+                     <img src="./imgs/xazna.png" alt="xazna" class="object-contain">
+                  </div>
+                  <div class="w-[155px] h-[55px] flex items-center justify-center rounded-lg bg-gray-200 shadow-sm">
+                     <img src="./imgs/click.png" alt="click" class="object-contain">
+                  </div>
+               </div>
+            </div>
+
+            <div class="hidden [@media(min-width:1050px)]:flex gap-4 text-gray-600">
+               <a href="#" class="hover:text-blue-600"><i class="fab fa-facebook-f text-xl"></i></a>
+               <a href="#" class="hover:text-sky-500"><i class="fab fa-telegram text-xl"></i></a>
+               <a href="#" class="hover:text-pink-500"><i class="fab fa-instagram text-xl"></i></a>
+               <a href="#" class="hover:text-red-500"><i class="fab fa-youtube text-xl"></i></a>
+               <a href="#" class="hover:text-gray-800"><i class="fas fa-rss text-xl"></i></a>
+            </div>
+
+         </div>
+      </section>
+
+      <div class="max-w-[1450px] mx-auto text-center text-gray-400 border-t border-gray-600 mt-10 pt-6 px-5 text-sm">
+         <p>2015 – 2025 Интернет-магазин avzolu.uz: Доставка товаров осуществляется во все
+            регионы. Все права защищены.
+         </p>
+      </div>
+   </footer>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   <script src="./js/app.js"></script>
+   <script>
+      document.addEventListener('DOMContentLoaded', () => {
+         const user = JSON.parse(localStorage.getItem('user'));
+
+         if (user) {
+            document.querySelectorAll('a').forEach(link => {
+               const span = link.querySelector('span');
+               if (span && span.textContent.trim() === "Войти") {
+                  span.textContent = "Профиль";
+                  link.href = "#";
+               }
+            });
+         }
+      });
+   </script>
+
+
+
+</body>
+
+</html>
